@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+	  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+      <meta name="description" content="Panier/Inventaire"/>
+      <meta name="author" content="Charles Hunter-Roy & Alexis Lalonde" />
+      <title>Panier</title> 
+      <link href=" styles/panier.css" rel="stylesheet" type="text/css"/>      
+      <script type="text/javascript" src="scripts/jquery-1.11.0.min.js"></script> 
+	</head>
+
+<body>
+	<div id="container">
+    	<div id="sub">
+        <table>
+        	<tr>
+            	<td>
+        			<div id="panierJoueur">
+            			<table id="panierItems">
+                			<tr id="panierLegende">
+                    			<td>Item</td>
+                    			<td>Prix</td>
+                    			<td>Quantité</td>
+                    			<td>Genre</td>
+                    		</tr>
+                            <tr>
+                            	<td>Potion de vie</td>
+                                <td>20</td>
+                                <td>5</td>
+                                <td>Potion</td>
+                            </tr>
+                		</table>
+            		</div>
+                </td>
+                <td>
+                	<div id="attributes">
+                    	<table>
+                        	<tr id="attLegende">
+                            	<td colspan="2">Item</td>
+                            </tr>
+                            <tr id="stats">
+                            	<td id="nom" colspan="2">Nom</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">attribut1</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">attribut2</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">attribut3</td>
+                            </tr>
+                            <tr id="info">
+                            	<td>Prix:<span>0</span></td>
+                                <td>Qte:<input type="number" id="quantite"/></td>                              
+                            </tr>
+                            <tr>
+                            	<td colspan="2">
+                                	<input type="button" id="update" value="updateTODO"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+            	<td>
+            		<div id="inventaireJoueur">
+                		<table>
+                    		<tr id="inventLegende">
+                        		<td>Item</td>
+                            	<td>Quantité</td>
+                        	</tr>
+                            <tr>
+                            	<td>BanHammer</td>
+                                <td>1</td>
+                            </tr>
+                    	</table>
+               		</div>
+                </td>
+                <td>
+                	<div id="paiementOptions">
+                    	<table>
+                        	<tr>
+                        		<td>Total:<span id="total">0</span>$</td>
+                            </tr>
+                            <tr>
+                            	<td>Montant:<span id="montant">0</span>$</td>
+                            </tr>
+                			<tr>
+                            	<td><input type="button" id="confirm" value="Confirmer le paiement"/></td>
+                        	</tr>                        	
+                        </table>
+                	</div>
+				</td>
+            </tr>
+         </table>
+        </div>
+    </div>
+</body>
+</html>

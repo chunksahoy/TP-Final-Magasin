@@ -1,0 +1,216 @@
+@charset "utf-8";
+html {
+	border:collapse;
+  background:  url(../resources/background3.jpg)no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+table#background {
+   margin: 0 auto;   
+   display:block;
+   z-index: -100;
+   height:1000px;
+}
+table#container {
+   background-color:rgba(255, 255, 255, 0.2);
+   display:block;
+   height: 100vh;
+   position:absolute;
+   display:block;
+   top:5vh; 
+   left:5vw;
+   width:89vw;
+   padding: 2px;
+   font-variant:small-caps;
+}
+div#headerMenu {
+   height: 8vh;
+   width: 88.6vw;
+   background-color:#009999;
+   position:relative;
+   display:block;
+   z-index:-0.5;
+}
+table#options { 
+	width:88vw;
+	height:5vh;
+}
+#options tr td {
+   	margin: 0 auto;
+	width: 100%;
+	text-align: center;
+}
+#recherche {
+	float:left;	
+}
+#connection {
+	width:10vw;
+}
+#logMenu {
+	width:100vw;
+	height:200vh;
+	background-color:rgba(255,255,255,0.5);
+	z-index:100;
+	position:relative;
+	display:block;
+	margin: 0 auto;
+}
+#logMenu div{
+	width:20vw;
+	height:20vh;
+	background-color:rgba(241,233,210,1.0);
+	z-index:100;
+	display:block;
+	margin: 0 auto;
+	display:block;
+	position:absolute;
+	top:50vh;
+	left:40vw;
+}
+#logMenu div table{
+	width:20vw;
+	height:20vh;
+}
+#panier {
+	height:5vh;
+	width:5vw;
+	background-image:url(../resources/paiement.png);
+	background-size:contain;	
+}
+#panier:hover {
+	background-image:url(../resources/paiement-over.png);
+	cursor:pointer;
+}
+div.menuOption {
+   
+}
+div#bodyMenu {
+   background-color: rgba(255,255,255,1.0);
+   height: 80%;
+   width: 99%;
+   position:absolute;
+   top:9vh;
+   z-index:50;
+}
+div#shopBrowsing {
+	display:block;
+	position:absolute;
+	left:15%;
+	height:80vh;
+	width:75vw;
+	border: collapse black 1px;
+	margin:0 auto;
+	overflow:scroll;
+}
+table#shop {
+	margin: 0 auto;
+	width: 74vw;
+}
+table#shop tr td {
+	border:collapse;	
+}
+table#legende {
+	border: solid black 1px;
+	width: 73.7vw;
+}
+table#legende tr {
+	border: solid black 1px;
+	height:4vh;
+	width:74vw;
+}
+table#legende tr td{
+	text-align:center;
+	border: collapse black 1px;
+	height:4vh;
+	width:80vw;
+   	background-color:lightgray;
+  	font-weight:900;
+}
+table#items {
+	border: solid black 1px;
+	width: 73.7vw;
+}
+table#items tr {
+	height:4vh;
+}
+table#items tr:hover {
+	cursor:cursor;
+
+}
+table#items tr td{
+	text-align:center;
+	height:4vh;
+	width:8%;
+}
+table#items tr td:hover{
+	cursor:default;
+}
+div#sideMenu {
+	float:left;
+	display:block;
+	position:absolute;
+
+	height:80vh;
+	width:13vw;
+	border: solid black 1px;
+}
+div#categories {
+	background-color:#5CCCCC;
+	height:16.5vh;
+	text-align:center;
+}
+#categories div {
+
+}
+#categoriesItems {
+	width:10vw;
+	height:3vh;
+}
+div#selectedItem {
+	background-color:#FFB273;
+	height:63.5vh;
+	text-align:center;
+}
+table#statistiques {
+	background-color:white;
+	border:solid black 1px;
+	margin: 0 auto;
+	text-align:left;
+	width:12vw;	
+}
+.head {
+	background-color:rgba(241,233,210,1.0);
+	height:5vh;
+	border-top: solid black 1px;
+	border-bottom: solid black 1px;
+	font-size:3vh;
+}
+div#commande {
+	text-align:left;
+}
+#commande div {
+	padding:5%;	
+}
+#quantite {
+	padding:10vh;	
+}
+#numeroItem {
+   width:2vw;
+}
+#inputQuantite {
+	width:10vw;	
+}
+#ajouter {
+	width:11.5vw;
+	height:5vh;	
+}
+div#footer {
+   background-color: #FF7400;
+   height: 10vh;
+   max-height:11.5vh;
+   width: 88.6vw;
+   position:absolute;
+   top:90vh;
+}

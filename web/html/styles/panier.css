@@ -1,0 +1,105 @@
+@charset "utf-8";
+html {
+	border:collapse;
+  background:  url(../resources/chivalry-weapons.png)no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+table#background {
+   margin: 0 auto;   
+   display:block;
+   z-index: -1;
+   height:1000vh;
+}
+div#container {
+	background-color:rgba(255, 255, 255, 0.0);
+   	display:block;
+   	height: 100vh;
+   	position:absolute;
+   	display:block;
+   	top:5vh; 
+   	left:5vw;
+   	width:90%;
+   	padding: 2px;
+   	font-variant:small-caps;	
+}
+div#sub {
+	width: 55vw;
+	height:75vh;
+	background-color:rgba(255, 255, 255, 0.3);
+	margin:0 auto;
+}
+div#container table{
+	margin:0 auto;
+	border-collapse:collapse;
+}
+div#container table tr{
+	margin:0 auto;
+}
+#panierJoueur {
+	background-color: rgba(241,233,210,1.0);
+	margin: 0 auto;
+	width: 35vw;
+	height:30vh;
+}
+#panierJoueur td {
+	width:100vw;
+	background-color:white;
+}
+#panierLegend td{
+	background-color:white;
+	width: 100vw;
+	height:4vh;
+	border: solid black 1px;
+}
+#attributes {
+	width: 15vw;
+	height: 30vh;
+	background-color:rgba(255, 255, 255, 0.0);
+}
+#attributes table {
+	background-color:white;
+	width:10vw;
+	height:30vh;
+	text-align:center;
+	border:solid black 1px;	
+}
+#attLegende {
+	font-size:2vw;
+}
+#quantite {
+	width:3vw;	
+}
+#inventaireJoueur {
+	background-color: rgba(241,233,210,1.0);
+	width:35vw;	
+	height:30vh;
+}
+#inventaireJoueur table {
+	background-color:white;
+}
+
+#inventLegende td{
+	width: 100vw;
+	height:4vh;
+}
+#paiementOptions {
+	width: 15vw;
+	height:30vh;
+	margin:0 auto;
+}
+#paiementOptions table {
+	background-color:white;
+	width: 10vw;
+	height:30vh;
+}
+#total {
+	background-color:white;
+	width:20vw;	
+}
+#montant {
+	background-color:white;
+	width:20vw;
+}

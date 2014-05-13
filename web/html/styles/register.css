@@ -1,0 +1,64 @@
+@charset "utf-8";
+html { 
+  background:  url(../resources/background3.jpg)no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+div#container {
+	background-color:rgba(255, 255, 255, 0.0);
+   	display:block;
+   	height: 100%;
+   	position:absolute;
+   	display:block;
+   	top:5%; 
+   	left:5%;
+   	width:90%;
+   	padding: 2px;
+   	font-variant:small-caps;	
+}
+#inscriptionPanel {
+	background-color: rgba(0,255,255,0.2);
+	border-radius:10px;
+   	height: 30%;
+  	width: 40%;
+   	position:absolute;
+  	top:20%;
+	left:30%;
+   	z-index:50;	
+}
+#inscriptionPanel table {
+	margin: 0 auto;
+	width:80%;
+	height:80%;
+}
+#inscriptionPanel table tr td {
+	margin: 0 auto;
+	padding-top: 2%;
+}
+#inscriptionForm {
+	background-color: rgba(241,233,210,1.0);
+	border:solid black 1px;
+	text-align:center;
+	border-radius:10px;
+}
+.info{
+	width:90%;
+}
+.buttons {
+	width:50%;
+}
+.input {
+	padding-right:5%;
+	text-align:left;
+	width:10%;
+}
+#ok {
+	float:left;
+	width:50%;	
+}
+#cancel {
+	float:right;
+	width:50%;	
+}
