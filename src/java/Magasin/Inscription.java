@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "Inscription", urlPatterns = {"/inscription"})
 public class Inscription extends HttpServlet {
-
+ 
    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
            throws ServletException, IOException {
       response.setContentType("text/html;charset=UTF-8");
@@ -32,22 +32,6 @@ public class Inscription extends HttpServlet {
    @Override
    protected void doGet(HttpServletRequest request, HttpServletResponse response)
            throws ServletException, IOException {
-      processRequest(request, response);
-   }
-
-   @Override
-   protected void doPost(HttpServletRequest request, HttpServletResponse response)
-           throws ServletException, IOException {
-      processRequest(request, response);
-   }
-
-   @Override
-   public String getServletInfo() {
-      return "Short description";
-   }// </editor-fold>
-   private void afficherPageConnection(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
-      response.setContentType("text/html;charset=UTF-8");
-               
       try (PrintWriter out = response.getWriter()) {
          out.println("<!DOCTYPE html>");
          out.println("<html>");
@@ -80,6 +64,147 @@ public class Inscription extends HttpServlet {
          out.println("<tr>");
          out.println("<td class=\"input\">");
          out.println("<span >Nom:</span></td>");
+         out.println("<td><input type=\"text\" id=\"nom\" class=\"info\"/>");
+         out.println("</td>");
+         out.println("</tr>");
+         out.println("</table>");
+         out.println("<table>");
+         out.println("<tr class=\"buttons\">");
+         out.println("<td>");
+         out.println("<input type=\"button\" id=\"ok\" value=\"Ok\"/>");
+         out.println("<input type=\"button\" id=\"cancel\" value=\"Annuler\"/>");
+         out.println("</td>");
+         out.println("</tr>");
+         out.println("</table>");
+         out.println("</div>");
+         out.println("</td>");
+         out.println("</tr>");
+         out.println("</table>");
+         out.println("</div>");
+         out.println("</div>");
+         out.println("</body>");
+         out.println("</html>");
+
+      }
+   }
+
+   @Override
+   protected void doPost(HttpServletRequest request, HttpServletResponse response)
+           throws ServletException, IOException {
+      try (PrintWriter out = response.getWriter()) {
+          
+          
+          
+         out.println("<!DOCTYPE html>");
+         out.println("<html>");
+         out.println("<head>");
+         out.println("<title>L\'allée des marchands</title>");
+         out.println("<link href=\" html/styles/register.css\" rel=\"stylesheet\" type=\"text/css\"/>");
+         out.println("<script type=\"text/javascript\" src=\"html/scripts/jquery-1.11.0.min.js\"></script>");
+         out.println("</head>");
+         out.println("<body>");
+         
+         out.println("<div id=\"container\">");
+         out.println("<div id=\"inscriptionPanel\">");
+         out.println("<table>");
+         out.println("<tr>");
+         out.println("<td>");
+         out.println("<div>");
+         out.println("<table id=\"inscriptionForm\">");
+         out.println("<tr>");
+         out.println("<td class=\"input\">");
+         out.println("<span >Alias:</span></td>");
+         out.println("<td><input type=\"text\" id=\"alias\" class=\"info\"/>");
+         out.println("</td>");
+         out.println("</tr>");
+         out.println("<tr>");
+         out.println("<td class=\"input\">");
+         out.println("<span>Prénom:</span></td>");
+         out.println("<td><input type=\"text\" id=\"prenom\" class=\"info\"/>");
+         out.println("</td>");
+         out.println("</tr>");
+         out.println("<tr>");
+         out.println("<td class=\"input\">");
+         out.println("<span >Nom:</span></td>");
+         out.println("<td><input type=\"text\" id=\"nom\" class=\"info\"/>");
+         out.println("</td>");
+         out.println("</tr>");
+         out.println("</table>");
+         out.println("<table>");
+         out.println("<tr class=\"buttons\">");
+         out.println("<td>");
+         out.println("<input type=\"button\" id=\"ok\" value=\"Ok\"/>");
+         out.println("<input type=\"button\" id=\"cancel\" value=\"Annuler\"/>");
+         out.println("</td>");
+         out.println("</tr>");
+         out.println("</table>");
+         out.println("</div>");
+         out.println("</td>");
+         out.println("</tr>");
+         out.println("</table>");
+         out.println("</div>");
+         out.println("</div>");
+         out.println("</body>");
+         out.println("</html>");
+
+      }
+   }
+
+   @Override
+   public String getServletInfo() {
+      return "Short description";
+   }// </editor-fold>
+   private void afficherPageConnection(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+      response.setContentType("text/html;charset=UTF-8");
+               
+      try (PrintWriter out = response.getWriter()) {
+          
+          OracleConnection oradb = null;
+          
+          try {
+              oradb = new OracleConnection();
+              CallableStatement stm;
+          }
+          catch(SQLException ex) {
+              
+          }
+          finally {
+              if(oradb != null) {
+                  oradb.deconnecter();
+              }
+          }
+          
+         out.println("<!DOCTYPE html>");
+         out.println("<html>");
+         out.println("<head>");
+         out.println("<title>L\'allée des marchands</title>");
+         out.println("<link href=\" html/styles/register.css\" rel=\"stylesheet\" type=\"text/css\"/>");
+         out.println("<script type=\"text/javascript\" src=\"html/scripts/jquery-1.11.0.min.js\"></script>");
+         out.println("</head>");
+         out.println("<body>");
+         
+         out.println("<div id=\"container\">");
+         out.println("<div id=\"inscriptionPanel\">");
+         out.println("<table>");
+         out.println("<tr>");
+         out.println("<td>");
+         out.println("<div>");
+         out.println("<table id=\"inscriptionForm\">");
+         out.println("<tr>");
+         out.println("<td class=\"input\">");
+         out.println("<span >Alias:</span></td>");
+         out.println("<td><input type=\"text\" id=\"alias\" class=\"info\"/>");
+         out.println("</td>");
+         out.println("</tr>");
+         out.println("<tr>");
+         out.println("<td class=\"input\">");
+         out.println("<span>Prénom:</span></td>");
+         out.println("<td><input type=\"text\" id=\"prenom\" class=\"info\"/>");
+         out.println("</td>");
+         out.println("</tr>");
+         out.println("<tr>");
+         out.println("<td class=\"input\">");
+         out.println("<span>Nom:</span></td>");
          out.println("<td><input type=\"text\" id=\"nom\" class=\"info\"/>");
          out.println("</td>");
          out.println("</tr>");

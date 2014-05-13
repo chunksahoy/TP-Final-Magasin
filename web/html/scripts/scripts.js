@@ -1,5 +1,5 @@
 $(document).ready(function (){
-   //$("#numeroItem").prop('disabled',true);
+   $("#numeroItem").prop('disabled',true);
    function createLogMenu() {
       var container = document.createElement("div");
       var div = document.createElement("div");
