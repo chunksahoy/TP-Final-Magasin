@@ -58,6 +58,73 @@ $(document).ready(function (){
       var qte = document.getElementById("inputQuantite").value;
       $("#inputTotal").text(price * qte + " Écus");      
    });
+   
+   $("#panierItems tr").on('click', function() {
+      var raw = $(this).text().split('\n');
+      $("#panierItems tr").each(function (index) {
+         $(this).css("background-color", "white");
+         $(this).css("color", "black");
+         $(this).removeClass("highlightItem");
+
+      });
+      $(this).addClass("highlightItem");
+      var stats = [];
+      stats[1] = raw[1];
+      stats[3] = raw[2];
+      stats[5] = raw[5];
+      stats[6] = raw[3];
+
+      document.cookie = "numItem=" + stats[1] + ";expires=Sat, 30 May 2014 08:00:00 UTC";
+      document.cookie = "typeItem=" + stats[5] + ";expires=Sat, 30 May 2014 08:00:00 UTC";
+      document.cookie = "prixItem=" + stats[6] + ";expires=Sat, 30 May 2014 08:00:00 UTC";
+      $.get( "http://localhost:8084/TP-Final-Magasin/panier", function( data ) {
+         $( "#stats" ).html( $(data).find("#stats") );
+         $( "#ID" ).html( $(data).find("#ID") );
+         $( "#montantJoueur" ).html( $(data).find("#montantJoueur") );
+         $("#statistiques tr td").each(function (index) {
+            if(index%2 !== 0 && index >1) {
+               $(this).text(stats[index]);
+            } 
+            document.getElementById("numeroItem").value = stats[1];
+            document.getElementById("inputQuantite").value = 1; 
+            $("#inputTotal").text(stats[6] + " Écus");
+            $('#inputQuantite').attr('max', raw[4]);
+         });
+      });
+   });
+   $("#inventaire tr").on('click', function() {
+      var raw = $(this).text().split('\n');
+      $("#inventaire tr").each(function (index) {
+         $(this).css("background-color", "white");
+         $(this).css("color", "black");
+         $(this).removeClass("highlightItem");
+
+      });
+      $(this).addClass("highlightItem");
+      var stats = [];
+      stats[1] = raw[1];
+      stats[3] = raw[2];
+      stats[5] = raw[5];
+      stats[6] = raw[3];
+
+      document.cookie = "numItem=" + stats[1] + ";expires=Sat, 30 May 2014 08:00:00 UTC";
+      document.cookie = "typeItem=" + stats[5] + ";expires=Sat, 30 May 2014 08:00:00 UTC";
+      document.cookie = "prixItem=" + stats[6] + ";expires=Sat, 30 May 2014 08:00:00 UTC";
+//      $.get( "http://localhost:8084/TP-Final-Magasin/panier", function( data ) {
+//         $( "#stats" ).html( $(data).find("#stats") );
+//         $( "#ID" ).html( $(data).find("#ID") );
+//         $( "#montantJoueur" ).html( $(data).find("#montantJoueur") );
+//         $("#statistiques tr td").each(function (index) {
+//            if(index%2 !== 0 && index >1) {
+//               $(this).text(stats[index]);
+//            } 
+//            document.getElementById("numeroItem").value = stats[1];
+//            document.getElementById("inputQuantite").value = 1; 
+//            $("#inputTotal").text(stats[6] + " Écus");
+//            $('#inputQuantite').attr('max', raw[4]);
+//         });
+//      });
+   });
 
    function getCookie(name){
       var pattern = RegExp(name + "=.[^;]*");
