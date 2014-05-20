@@ -165,6 +165,7 @@ public class Magasin extends HttpServlet {
             }
             /////////////////////////////////////////////////////////////////////////////////
             
+<<<<<<< HEAD
             //connexion d'un usager
             try {
                 String joueur = request.getParameter("alias");
@@ -206,6 +207,157 @@ public class Magasin extends HttpServlet {
             finally {
                 oradb.deconnecter();
             }
+=======
+            if(joueur != null ) {
+               //vérifier l'alias du joueur pour valider le login
+               String sql = "select aliasjoueur from joueurs where aliasjoueur= '" + joueur + "'";
+               oradb = new OracleConnection();
+               oradb.connecter();
+               
+               Statement stm = oradb.getConnexion().createStatement();
+               int resp = stm.executeUpdate(sql);
+               
+               if(resp > 0) {
+                  Cookie alias = new Cookie("alias", joueur );
+                  //alias.setMaxAge(60 * 60 * 60);
+                  response.addCookie(alias);
+               }
+               else {
+                  //usager invalide
+               }
+            }
+            if(quantite != null ) {
+               Cookie qte = new Cookie("quantite", quantite);
+               //qte.setMaxAge(60*60);
+               response.addCookie(qte);
+            }
+            if(numitem != null) {
+               Cookie num = new Cookie("numItem", numitem);
+               //num.setMaxAge(60*60);
+               response.addCookie(num);
+            }
+         }
+         catch(SQLException ex){
+            
+         }
+         finally {
+            oradb.deconnecter();
+         }
+         
+         ///////////////////////////affichage de l'entête/////////////////////////////////
+         out.println("<!DOCTYPE html>");
+         out.println("<html>");
+         out.println("<head>");
+         out.println("<meta name='description' content='Page Principale'/>");
+         out.println("<meta name='author' content='Charles Hunter-Roy & Alexis Lalonde' />");
+         out.println("<title>L\'allée des marchands</title>");
+         out.println("<link href='html/styles/main.css' rel='stylesheet' type='text/css'/>");
+         out.println("<script type='text/javascript' src='html/scripts/jquery-1.11.0.min.js'></script>");
+         out.println("<script type='text/javascript' src='html/scripts/scripts.js'></script>");
+         out.println("</head>");
+         //////////////////////////////////////////////////////////////
+         /////////////////////////affichage du body////////////////////
+         out.println("<body id='body'>");
+         out.println("<form action='magasin' method='post'>");
+         out.println("<table id='background'>");
+         out.println("<tr>");
+         out.println("<td>");
+         out.println("<table id='container'>");
+         out.println("<tr>");
+         out.println("<td>");
+         out.println("<div id='headerMenu'>");
+         out.println("<table id='options'>");
+         out.println("<tr>");
+         out.println("<td>");
+         out.println("<form action='recherche' method='post'><div id='recherche'>Recherche: <input type='text' name='recherche'> <input type='submit' id='loupe'></div></form>");
+         out.println("</td>");
+         out.println("<td> <span id='ID'>" + id + "</span>");
+         out.println("<input type='button' id='connection' value='Connexion'>");
+         out.println("</td>");
+         out.println("<td>");
+         out.println("<a href='panier'><div id='panier'></div></a>");
+         //out.println("<input type='submit' value='Panier'>");
+         out.println("</td>");
+         out.println("<td>");
+         out.println("<span id ='totalJoueur'>" + total +"Écus</span>");
+         out.println("</td>");
+         out.println("</td>");
+         out.println("</tr>");
+         out.println("</table>");
+         out.println("</div>");
+         out.println(" </td>");
+         out.println("</tr>");
+         out.println("<tr>");
+         out.println("<td>");
+         out.println("<div id='bodyMenu'>");
+         out.println("<div id='sideMenu'>");
+         out.println("<div id='categories'><div class='head'>Catégories</div>");
+         out.println("<select name='categoriesItems' id='categoriesItems'>");
+         out.println("<option name='Tous' value='Tous'>Tous</option>");
+         out.println("<option name='Arme' value='Arme'>Arme</option>");
+         out.println("<option name='Habileté' value='Habileté'>Habilete</option>");
+         out.println("<option name='Armure' value='Armure'>Armure</option>");
+         out.println("<option name='Potion' value='Potion'>Potion</option>");
+         out.println("</select>");
+         out.println("<input type='submit'value='Filtrer'>");
+         out.println("</div>");
+         out.println("<div id='selectedItem'>");
+         out.println("<div class='head'>Item</div>");
+         out.println("<table id='statistiques'>");
+         out.println("<tr>");
+         out.println("<td>Numéro:<input type='number' id='numeroItem' name='numItem'></td>");
+         out.println("<td></td>");
+         out.println("</tr>");
+         out.println("<tr>");
+         out.println("<td>Nom:</td>");
+         out.println("<td></td>");
+         out.println("</tr>");
+         out.println("<tr>");
+         out.println("<td>Genre:</td>");
+         out.println("<td></td>");
+         out.println("</tr>");
+         out.println("<tr>");
+         out.println("<td>");
+         out.println("<ul id='attributs'>");
+         for(int i = 0; i < list.size(); ++i)
+         {
+            out.println("<li>" + list.get(i) + "</li>");
+         }
+         out.println("</ul>");
+         out.println("</td>");
+         out.println("</tr>");
+         out.println("</table>");
+         out.println("<div id='commande'>");
+         out.println("<div id='total'>Prix:<span id='inputTotal'>0</span></div>");
+         out.println("<div id='quantite'>Quantité: <input type='number' min='0' id='inputQuantite' name='quant'></div>");
+         out.println("<div><input type='submit' value='Ajouter au panier' id='ajouter'></div>");
+         out.println("</div>");
+         out.println("</div>");
+         out.println("</div>");
+         out.println("<div id='shopBrowsing'>");
+         out.println("<table id='shop'>");
+         out.println("<tr>");
+         out.println("<td>");
+         out.println("<table id='legende'>");
+         out.println("<tr>");
+         out.println("<td>Numéro</td>");
+         out.println("<td>Nom</td>");
+         out.println("<td>Prix</td>");
+         out.println("<td>Quantité</td>");
+         out.println("<td>Genre</td>");
+         out.println("</tr>");
+         out.println("</table>");
+         out.println("</td>");
+         out.println("</tr>");
+         out.println("<tr>");
+         out.println("<td>");
+         out.println("<table id='items'>");
+         
+         String filtre = (String)request.getParameter("categoriesItems");
+         String search = (String)request.getParameter("recherche");
+         ////////////////affichage du catalogue d'items//////////////
+         try {
+>>>>>>> 5803090e60797f4d03782cc6fc4cce71054cef01
             
             ///////////////////////////affichage de l'entête/////////////////////////////////
             out.println("<!DOCTYPE html>");
@@ -586,6 +738,7 @@ public class Magasin extends HttpServlet {
             out.println("<div id='total'>Total:<span id='inputTotal'>0</span></div>");
             
             
+<<<<<<< HEAD
             out.println("<div><input type='submit' value='Ajouter au panier' id='ajouter'></div>");
             out.println("</div>");
             out.println("</div>");
@@ -608,6 +761,128 @@ public class Magasin extends HttpServlet {
             out.println("<tr>");
             out.println("<td>");
             out.println("<table id='items'>");
+=======
+         }
+         finally {
+            oradb.deconnecter();
+         }
+         
+         out.println("<!DOCTYPE html>");
+         out.println("<html>");
+         out.println("<head>");
+         out.println("<meta name='description' content='Page Principale'/>");
+         out.println("<meta name='author' content='Charles Hunter-Roy & Alexis Lalonde' />");
+         out.println("<title>L\'allée des marchands</title>");
+         out.println("<link href='html/styles/main.css' rel='stylesheet' type='text/css'/>");
+         out.println("<script type='text/javascript' src='html/scripts/jquery-1.11.0.min.js'></script>");
+         out.println("<script type='text/javascript' src='html/scripts/scripts.js'></script>");
+         out.println("</head>");
+         
+         out.println("<body>");
+         out.println("<form action='magasin' method='get'>");
+         out.println("<table id='background'>");
+         out.println("<tr>");
+         out.println("<td>");
+         out.println("<table id='container'>");
+         out.println("<tr>");
+         out.println("<td>");
+         out.println("<div id='headerMenu'>");
+         out.println("<table id='options'>");
+         out.println("<tr>");
+         out.println("<td>");
+         out.println("<form action='recherche' method='post'><div id='recherche'>Recherche: <input type='text' name='recherche'> <input type='submit' id='loupe'></div></form>");
+         out.println("</td>");
+         out.println("<td>");
+         out.println("<input type='button' id='connection' value='Connexion'>");
+         out.println("<td> <span id='ID'>" + id + "</span>");
+         out.println("<td>");
+         out.println("<a href='panier'><div id='panier'></div></a>");
+         out.println("</td>");
+         out.println("<td>");
+         out.println("<span id ='totalJoueur'>" + total + " Écus</span>");
+         out.println("</td>");
+         out.println("</td>");
+         out.println("</tr>");
+         out.println("</table>");
+         out.println("</div>");
+         out.println(" </td>");
+         out.println("</tr>");
+         out.println("<tr>");
+         out.println("<td>");
+         out.println("<div id='bodyMenu'>");
+         out.println("<div id='sideMenu'>");
+         out.println("<div id='categories'><div class='head'>Catégories</div>");
+         out.println("<select name='categoriesItems' id='categoriesItems'>");
+         out.println("<option name='Tous' value='Tous'>Tous</option>");
+         out.println("<option name='Arme'value='Arme'>Arme</option>");
+         out.println("<option name='Habilete' value='Habilete'>Habilete</option>");
+         out.println("<option name='Armure' value='Armure'>Armure</option>");
+         out.println("<option name='Potion' value='Potion'>Potion</option>");
+         out.println("</select>");
+         out.println("<input type='submit'value='Filtrer'>");
+         out.println("</div>");
+         out.println("<div id='selectedItem'>");
+         out.println("<div class='head'>Item</div>");
+         out.println("<table id='statistiques'>");
+         out.println("<tr>");
+         out.println("<td>Numéro:<input type='number' id='numeroItem' name='numItem'></td>");
+         out.println("<td></td>");
+         out.println("</tr>");
+         out.println("<tr>");
+         out.println("<td>Nom:</td>");
+         out.println("<td></td>");
+         out.println("</tr>");
+         out.println("<tr>");
+         out.println("<td>Genre:</td>");
+         out.println("<td></td>");
+         out.println("</tr>");
+         out.println("<tr>");
+         out.println("<td>");
+         out.println("<ul id='attributs'>");
+         out.println("<li>Attribut1</li>");
+         out.println("<li>Attribut2</li>");
+         out.println("<li>Attribut3</li>");
+         out.println("</ul>");
+         out.println("</td>");
+         out.println("</tr>");
+         out.println("</table>");
+         out.println("<div id='commande'>");
+         out.println("<div id='quantite'>Quantité: <input type='number' min='0' id='inputQuantite' name='quant'></div>");
+         out.println("<div id='total'>Total:<span id='inputTotal'>0</span></div>");
+         
+         
+         out.println("<div><input type='submit' value='Ajouter au panier' id='ajouter'></div>");
+         out.println("</div>");
+         out.println("</div>");
+         out.println("</div>");
+         out.println("<div id='shopBrowsing'>");
+         out.println("<table id='shop'>");
+         out.println("<tr>");
+         out.println("<td>");
+         out.println("<table id='legende'>");
+         out.println("<tr>");
+         out.println("<td>Numéro</td>");
+         out.println("<td>Nom</td>");
+         out.println("<td>Prix</td>");
+         out.println("<td>Quantité</td>");
+         out.println("<td>Genre</td>");
+         out.println("</tr>");
+         out.println("</table>");
+         out.println("</td>");
+         out.println("</tr>");
+         out.println("<tr>");
+         out.println("<td>");
+         out.println("<table id='items'>");
+         
+         String filtre = (String)request.getParameter("categoriesItems");
+         String search = (String)request.getParameter("recherche");
+         try {
+            oradb = new OracleConnection();
+            oradb.connecter();
+            String sql = "";
+            CallableStatement stm = null;
+            ResultSet rst = null;
+>>>>>>> 5803090e60797f4d03782cc6fc4cce71054cef01
             
             String filtre = (String)request.getParameter("categoriesItems");
             String search = (String)request.getParameter("recherche");

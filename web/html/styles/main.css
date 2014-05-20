@@ -76,7 +76,7 @@ table#options {
 #panier {
 	height:5vh;
 	width:5vw;
-	background-image:url(../resources/paiement.png);
+	background-image:url(../resources/paiement.jpg);
 	background-size:contain;	
 }
 #panier:hover {
