@@ -180,7 +180,7 @@ public class Magasin extends HttpServlet {
                
                if(resp > 0) {
                   Cookie alias = new Cookie("alias", joueur );
-                  alias.setMaxAge(60 * 60 * 60);
+                  //alias.setMaxAge(60 * 60 * 60);
                   response.addCookie(alias);
                }
                else {
@@ -189,12 +189,12 @@ public class Magasin extends HttpServlet {
             }
             if(quantite != null ) {
                Cookie qte = new Cookie("quantite", quantite);
-               qte.setMaxAge(60*60);
+               //qte.setMaxAge(60*60);
                response.addCookie(qte);
             }
             if(numitem != null) {
                Cookie num = new Cookie("numItem", numitem);
-               num.setMaxAge(60*60);
+               //num.setMaxAge(60*60);
                response.addCookie(num);
             }
          }
@@ -237,6 +237,7 @@ public class Magasin extends HttpServlet {
          out.println("</td>");
          out.println("<td>");
          out.println("<a href='panier'><div id='panier'></div></a>");
+         //out.println("<input type='submit' value='Panier'>");
          out.println("</td>");
          out.println("<td>");
          out.println("<span id ='totalJoueur'>" + total +"Écus</span>");
@@ -289,7 +290,7 @@ public class Magasin extends HttpServlet {
          out.println("</table>");
          out.println("<div id='commande'>");
          out.println("<div id='total'>Prix:<span id='inputTotal'>0</span></div>");
-         out.println("<div id='quantite'>Quantité: <input type='number' min='1' id='inputQuantite' name='quant'></div>");
+         out.println("<div id='quantite'>Quantité: <input type='number' min='0' id='inputQuantite' name='quant'></div>");
          out.println("<div><input type='submit' value='Ajouter au panier' id='ajouter'></div>");
          out.println("</div>");
          out.println("</div>");
@@ -580,7 +581,7 @@ public class Magasin extends HttpServlet {
          out.println("</tr>");
          out.println("</table>");
          out.println("<div id='commande'>");
-         out.println("<div id='quantite'>Quantité: <input type='number' id='inputQuantite' name='quant'></div>");
+         out.println("<div id='quantite'>Quantité: <input type='number' min='0' id='inputQuantite' name='quant'></div>");
          out.println("<div id='total'>Total:<span id='inputTotal'>0</span></div>");
          
          

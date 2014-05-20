@@ -54,6 +54,12 @@ div#container table tr{
 	height:4vh;
 	border: solid black 1px;
 }
+#panierJoueur tr:hover {
+   cursor :pointer;
+}
+#inventaireJoueur tr:hover {
+   cursor:pointer;
+}
 #attributes {
 	width: 15vw;
 	height: 30vh;
